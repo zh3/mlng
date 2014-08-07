@@ -26,13 +26,15 @@ sigma = zeros(1, size(X, 2));
 % Hint: You might find the 'mean' and 'std' functions useful.
 %       
 
+for col = 1:size(X, 2)
+    featureValues = X(:, col);
+    featureMean = mean(featureValues);
+    featureStd = std(featureValues);
 
-
-
-
-
-
-
+    X_norm(:, col) = (X_norm(:, col) - featureMean) / featureStd;
+    mu(col) = featureMean;
+    sigma(col) = featureStd;
+end
 
 % ============================================================
 
